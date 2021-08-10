@@ -138,7 +138,9 @@ dropDownColumns.appendTo('#editmodes');
 
 function rowDataBound(args: RowDataBoundEventArgs) {
   if (!(args.data as ITreeData).hasChildRecords) {
-    (args.row as HTMLElement).style.backgroundColor = 'grey';
+    //responsible for the rows attributes
+    (args.row as HTMLElement).style.backgroundColor = '#008cff';
+    (args.row as HTMLElement).style.fontFamily = 'serif';
   }
 }
 function queryCellInfo(args: QueryCellInfoEventArgs) {
