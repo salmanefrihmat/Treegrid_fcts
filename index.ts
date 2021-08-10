@@ -31,13 +31,18 @@ let treeGridObj: TreeGrid = new TreeGrid({
   dataSource: sampleData,
   childMapping: 'subtasks',
   /*  selectionSettings: { cellSelectionMode: 'Box', type: 'Multiple', mode: 'Cell'},*/
-  selectionSettings: { type: 'Multiple' ,cellSelectionMode:'Both'},
+  selectionSettings: { type: 'Multiple', cellSelectionMode: 'Both' },
   allowSorting: true,
   treeColumnIndex: 1,
   allowReordering: true,
   allowRowDragAndDrop: true,
   allowPaging: true,
   allowFiltering: true,
+  filterSettings: {
+    type: 'FilterBar',
+    hierarchyMode: 'Parent',
+    mode: 'Immediate'
+  },
   pageSettings: { pageSize: 15 },
   editSettings: {
     allowAdding: true,
