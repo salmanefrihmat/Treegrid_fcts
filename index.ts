@@ -30,11 +30,7 @@ TreeGrid.Inject(
 let treeGridObj: TreeGrid = new TreeGrid({
   dataSource: sampleData,
   childMapping: 'subtasks',
-  selectionSettings: {
-    cellSelectionMode: 'Box',
-    type: 'Multiple',
-    mode: 'Cell'
-  },
+/*  selectionSettings: { cellSelectionMode: 'Box', type: 'Multiple', mode: 'Cell'},*/
   allowSorting: true,
   treeColumnIndex: 1,
   allowReordering: true,
