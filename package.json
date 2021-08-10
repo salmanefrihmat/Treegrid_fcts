@@ -6,6 +6,7 @@
     "@syncfusion/ej2-buttons": "^19.2.47",
     "@syncfusion/ej2-dropdowns": "19.2.51",
     "@syncfusion/ej2-file-utils": "^19.2.44",
+    "@syncfusion/ej2-grids": "^19.2.51",
     "@syncfusion/ej2-treegrid": "19.2.51"
   }
 }

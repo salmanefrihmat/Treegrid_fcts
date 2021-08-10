@@ -5,12 +5,18 @@ import {
   Toolbar,
   Edit,
   Resize,
+  CommandColumn,
   Selection,
   ContextMenu,
   Sort,
   Reorder,
   RowDD
 } from '@syncfusion/ej2-treegrid';
+//used to custom the Rows
+import {
+  QueryCellInfoEventArgs,
+  RowDataBoundEventArgs
+} from '@syncfusion/ej2-grids';
 import { sampleData } from './datasource.ts';
 import { DropDownList, ChangeEventArgs } from '@syncfusion/ej2-dropdowns';
 
@@ -20,6 +26,7 @@ TreeGrid.Inject(
   Toolbar,
   Edit,
   Resize,
+  CommandColumn,
   Selection,
   ContextMenu,
   Sort,
@@ -64,7 +71,9 @@ let treeGridObj: TreeGrid = new TreeGrid({
     'LastPage',
     'NextPage'
   ],
-
+  //functions used to custom the treegrid
+  rowDataBound: rowDataBound,
+  queryCellInfo: queryCellInfo,
   toolbar: ['Add', 'Delete', 'Update', 'Cancel'],
   columns: [
     {
@@ -80,6 +89,8 @@ let treeGridObj: TreeGrid = new TreeGrid({
       headerText: 'Task Name',
       editType: 'stringedit',
       width: 220,
+      //for using the css
+      //customAttributes: { class: 'customcss' },
       validationRules: { required: true }
     },
     {
@@ -124,3 +135,18 @@ let dropDownColumns: DropDownList = new DropDownList({
   }
 });
 dropDownColumns.appendTo('#editmodes');
+
+function rowDataBound(args: RowDataBoundEventArgs) {
+  if (!(args.data as ITreeData).hasChildRecords) {
+    (args.row as HTMLElement).style.backgroundColor = 'grey';
+  }
+}
+function queryCellInfo(args: QueryCellInfoEventArgs) {
+  if (!(args.data as ITreeData).hasChildRecords) {
+    if ((args.cell as HTMLElement).classList.contains('e-unboundcell')) {
+      ((args.cell as HTMLElement).querySelector(
+        '.e-unboundcelldiv'
+      ) as HTMLElement).style.display = 'none';
+    }
+  }
+}
