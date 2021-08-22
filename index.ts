@@ -36,6 +36,12 @@ TreeGrid.Inject(
 
 let treeGridObj: TreeGrid = new TreeGrid({
   dataSource: sampleData,
+  idMapping: 'taskID',
+  //used to show the parent rows only
+  //parentIdMapping: 'parentID',
+
+  //used to make the task id unique
+  uniqueID: 'taskID', 
   childMapping: 'subtasks',
   /*  selectionSettings: { cellSelectionMode: 'Box', type: 'Multiple', mode: 'Cell'},*/
   selectionSettings: { type: 'Multiple', cellSelectionMode: 'Both' },
